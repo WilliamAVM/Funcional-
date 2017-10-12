@@ -1,10 +1,15 @@
 {-
 	Ejercicios con listas
 -}
+
 l1 = [2, 4, 6, 7, 2, 4, 8, 7, 2]
 l2 = [2, 4, 6, 8, 10, 12, 14]
 l3 = [4, 4, 4, 4, 4, 4, 4, 4]
 l4 = [[1, 2], [3, 4, 5], [6, 7, 8, 9], [10, 11]]
+l5 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+l6 = [1, 2, 3, 4, 5, 6, 7, 8]
+l7 = [1, 2, 3, 4, 5, 6, 7, 8]
 
 -- 1. El seg elemnto
 segElem :: [a] -> a
@@ -45,3 +50,45 @@ todosIguales xs = and (map f xs)
 listaLongitud :: [[a]] -> [Int]
 listaLongitud xss = map f xss
 	where f xs = length xs 
+
+-- 4. Reciba una lista de listas y devuelve True si todas las listas son del mismo tamanio
+todasLongIguales :: [[a]] -> Bool
+todasLongIguales xss = and (map f xss)
+	where f xs = (length (head xss)) == (length xs)
+
+-- 5. Recibe dos listas y devuelve True si son iguales, falso en otro caso
+listasIguales :: Eq a => [a] -> [a] -> Bool
+listasIguales xs ys = if l1 /= l2 then False else and(zipWith f xs ys)
+	where
+		l1 = length xs
+		l2 = length ys
+		f x y = x == y
+
+-- 6. Recibe una lista y devuelve True si esta ordenada ascendentemente
+ordenadaAsc :: Ord a => [a] -> Bool
+ordenadaAsc xs = and (zipWith (<) xs (tail xs))
+
+-- 7. Recibe una matriz y un valor n y devuelve la columna de la matriz
+columnaMatriz :: [[a]] -> Int -> [a]
+columnaMatriz xss n = map (!! n) xss
+
+-- 8. Recibe una matriz y devuelva True si la est cuadrada
+matrizCuadrada :: [[a]] -> Bool
+matrizCuadrada xss = (pe == length xss) && longIguales
+	where
+		pe = length (head xss)
+		longIguales = and(map f xss)
+		f x = length x == pe
+
+-- 9. Recibe una matriz y devuelve la diagonal principal
+diagonalPrincipal :: [[a]] -> [a]
+diagonalPrincipal xss = zipWith (!!) xss yss
+	where yss = [0..length(xss)-1]
+
+-- 10. Recibe una matriz y devuelve la diagonal secundaria
+diagonalSecundaria :: [[a]] -> [a]
+diagonalSecundaria xss = zipWith (!!) xss yss
+	where yss = reverse [0..length(xss)-1]
+
+-- 11. Transpuesta de una matriz
+
