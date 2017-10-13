@@ -82,13 +82,18 @@ matrizCuadrada xss = (pe == length xss) && longIguales
 
 -- 9. Recibe una matriz y devuelve la diagonal principal
 diagonalPrincipal :: [[a]] -> [a]
-diagonalPrincipal xss = zipWith (!!) xss yss
-	where yss = [0..length(xss)-1]
+diagonalPrincipal xss = zipWith (!!) xss ys
+	where ys = [0..length(xss)-1]
 
 -- 10. Recibe una matriz y devuelve la diagonal secundaria
 diagonalSecundaria :: [[a]] -> [a]
-diagonalSecundaria xss = zipWith (!!) xss yss
-	where yss = reverse [0..length(xss)-1]
+diagonalSecundaria xss = zipWith (!!) xss ys
+	where ys = reverse [0..length(xss)-1]
 
 -- 11. Transpuesta de una matriz
 
+transpuesta xss = map f xss
+	where 
+		f xss = zipWith (!!) xss ys
+		ys = [0..(length (head xss))-1]
+		
