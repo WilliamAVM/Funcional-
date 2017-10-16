@@ -22,7 +22,7 @@ frm 8 = "Agosto"
 frm 9 = "Septiembre sin fap"
 frm 10 = "Octubre"
 frm 11 = "Noviembre sin ella :'V"
-frm 12 = "Diceimbre"
+frm 12 = "Navidad"
 frm _ = "WTF !!"
 
 --3.-recibe fecha y retorna año
