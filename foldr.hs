@@ -44,4 +44,12 @@ ordena xs = foldr g a xs
 		a = []
 		g x ls = (takeWhile (<=x) ls) ++ (x:dropWhile(<=x)ls)
 
+lis1 = [1, 2, 3, 4, 5, 6, 7, 8]
+lis2 = lis1
 
+compara xs ys = if l1 /= l2 then False else and(foldr f a [0..l1-1])
+	where 
+		a = []
+		f i ls = ((xs !! i) == (ys !! i)):ls
+		l1 = length xs
+		l2 = length ys
